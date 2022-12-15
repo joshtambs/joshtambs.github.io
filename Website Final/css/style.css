@@ -1,0 +1,159 @@
+body{
+    font: 15px/1.5 Arial, Helvetica, sans-serif;
+    padding:0;
+    margin:0;
+    background-color: #e0dbc6;
+}
+
+/* Global */
+.container{
+    width:80%;
+    margin:auto;
+    overflow:hidden;
+}
+
+ul{
+    margin:0;
+    padding:0;
+}
+
+.button_1{
+    height:38px;
+    background:#16425B;
+    border:0;
+    padding-left:20px;
+    padding-right:20px;
+    color:aliceblue
+}
+
+.dark{
+    padding:15px;
+    background:#011727;
+    color:aliceblue;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+/* Header */
+header{
+    background:#81C3D7;
+    padding: top 30px;
+    min-height: height 70px;
+    border-bottom: #16425B 3px solid;
+}
+
+header a{
+    color: #2c6183;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+
+header li{
+    float:left;
+    display:inline;
+    padding: 0 20px 0 20px;
+}
+
+header #branding{
+    float:left
+}
+
+header #branding h1{
+    margin:0
+}
+
+header nav{
+    float:inline;
+    margin-top:12px;
+}
+
+header .highlight, header .current a{
+    font-weight: bold;
+    font-style: oblique;
+    color:#011727;
+}
+
+header a:hover{
+    color:#16425B;
+    font-weight: bold;
+}
+
+/* Showcase*/
+#showcase{
+    min-height: 400px;
+    background:url('../img/stroke.gif') 0 150px;
+    text-align: center;
+    color:aliceblue;
+}
+
+#showcase h1{
+    margin-top:30px;
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+#showcase p{
+    font-size:20px;
+}
+
+#newsletter{
+    background: #81C3D7;
+    padding:50px;
+    color:aliceblue;
+}
+
+/* Newsletter */
+#newsletter h1{
+    float:left;
+}
+
+#newsletter form{
+    float:right;
+    margin-top:18px
+}
+
+#newsletter input[type="email"]{
+    padding:4x;
+    height:25px;
+    width:250px;
+}
+
+/* Boxes */
+#boxes{
+    margin-top:20px;
+}
+
+#boxes .box{
+    float:left;
+    text-align:center;
+    width:30%;
+    padding: 10px;
+}
+
+#boxes .box img{
+    width:90px;
+    height:90px;
+}
+
+/* Sidebar */
+aside#sidebar{
+    float:right;
+    width:30%;
+    margin-top:10px;
+}
+
+/* Main-col*/
+article#main-col{
+    float:left;
+    width:65%;
+}
+/* Footer */
+footer{
+    padding:20px;
+    margin-top: 20px;
+    color:#ffffff;
+    background-color:#011727;
+    text-align:center;
+}
