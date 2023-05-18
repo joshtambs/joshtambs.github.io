@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Colorful Greetings</title>
+    <script>
+        function changeColor() {
+            var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+            var greetingElement = document.getElementById("greeting");
+            var currentColor = greetingElement.style.color;
+            var currentIndex = colors.indexOf(currentColor);
+            var nextIndex = (currentIndex + 1) % colors.length;
+            greetingElement.style.color = colors[nextIndex];
+        }
+    </script>
+    <style>
+        body {
+            text-align: center;
+            padding: 50px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            cursor: pointer;
+            transition: color 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="greeting" onclick="changeColor()">Hello</h1>
+    <a href = "./../about.html" a></a>
+</body>
+</html>

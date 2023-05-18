@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Words</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 50px;
+            font-family: Arial, sans-serif;
+        }
+
+        .word {
+            font-size: 24px;
+            margin-bottom: 20px;
+            transition: color 0.5s, font-family 0.5s;
+        }
+    </style>
+    <script>
+        function getRandomWord() {
+            var words = ["apple", "banana", "cherry", "grape", "melon", "orange", "peach"];
+            return words[Math.floor(Math.random() * words.length)];
+        }
+
+        function changeWordProperties() {
+            var wordElements = document.getElementsByClassName("word");
+
+            for (var i = 0; i < wordElements.length; i++) {
+                var wordElement = wordElements[i];
+                var randomWord = getRandomWord();
+
+                wordElement.textContent = randomWord;
+                wordElement.style.color = getRandomColor();
+                wordElement.style.fontFamily = getRandomFontFamily();
+            }
+        }
+
+        function getRandomColor() {
+            var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function getRandomFontFamily() {
+            var fonts = ["Arial", "Verdana", "Helvetica", "Georgia", "Times New Roman", "Courier", "Comic Sans MS"];
+            return fonts[Math.floor(Math.random() * fonts.length)];
+        }
+    </script>
+</head>
+<body onload="changeWordProperties()">
+    <h1 class="word"></h1>
+    <h1 class="word"></h1>
+    <h1 class="word"></h1>
+
+    <script>
+        setInterval(changeWordProperties, 3000); // Change words every 3 seconds
+    </script>
+    <a href = "./../about.html" a></a>
+</body>
+</html>
