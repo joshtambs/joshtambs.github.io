@@ -2,35 +2,83 @@
 <html>
 <head>
     <title>Colorful Greetings</title>
-    <script>
-        function changeColor() {
-            var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
-            var greetingElement = document.getElementById("greeting");
-            var currentColor = greetingElement.style.color;
-            var currentIndex = colors.indexOf(currentColor);
-            var nextIndex = (currentIndex + 1) % colors.length;
-            greetingElement.style.color = colors[nextIndex];
-        }
-    </script>
-    <style>
-        body {
-            text-align: center;
-            padding: 50px;
-        }
-        
-        h1 {
-            font-size: 48px;
-            cursor: pointer;
-            transition: color 0.5s;
-        }
-    </style>
+    <link rel="stylesheet" href="./../css/style.css">
 </head>
 <body>
     <header>
-        <li><a href = "./../index.html" a>Home</a></li>
-        <li><a href = "./page2.html" a>Page 2</a></li>
+        <ul>
+            <a href="./../index.html">Home</a>
+            <a href="./page2.html">Page 2</a>
+        </ul>
     </header>
-    <h1 id="greeting" onclick="changeColor()">Hello</h1>
-    <img src="./img/imimim.jpg" width="300" height="300">
+    <h1 id="greeting" onclick="changeColor(this)">Hello</h1>
+    <div id="canvas-container">
+        <canvas id="animation-canvas" onclick="changeAnimation()"></canvas>
+    </div>
+    <img src="./moreImg/after effects logo.png" width="600" height="300">
+
+    <script>
+        var greetingElement = document.getElementById("greeting");
+        var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+        var currentColorIndex = 0;
+
+        function changeColor(element) {
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+            element.style.color = colors[currentColorIndex];
+        }
+
+        // Animation
+        var canvas = document.getElementById("animation-canvas");
+        var ctx = canvas.getContext("2d");
+        var x = canvas.width / 2;
+        var y = canvas.height / 2;
+        var dx = 2;
+        var dy = -2;
+        var text = "Mr. Thoe";
+        var fontIndex = 0;
+        var fonts = ["Arial", "Verdana", "Helvetica", "Courier", "Times New Roman"];
+        var direction = 1;
+        var borderMaxWidth = 10;
+        var borderWidth = 1;
+        var borderDirection = 1;
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.font = "24px " + fonts[fontIndex];
+            ctx.fillStyle = colors[currentColorIndex];
+            ctx.fillText(text, x, y);
+
+            ctx.lineWidth = borderWidth;
+            ctx.strokeStyle = colors[currentColorIndex];
+            ctx.strokeText(text, x, y);
+
+            x += dx * direction;
+            y += dy;
+
+            if (x + ctx.measureText(text).width > canvas.width || x < 0) {
+                direction = -direction;
+            }
+            if (y + 24 > canvas.height || y - 24 < 0) {
+                dy = -dy;
+            }
+
+            borderWidth += borderDirection;
+            if (borderWidth <= 1 || borderWidth >= borderMaxWidth) {
+                borderDirection = -borderDirection;
+            }
+
+            requestAnimationFrame(draw);
+        }
+
+        function changeAnimation() {
+            fontIndex = (fontIndex + 1) % fonts.length;
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+            direction = -direction;
+        }
+
+        canvas.width = 300;
+        canvas.height = 200;
+        draw();
+    </script>
 </body>
 </html>
