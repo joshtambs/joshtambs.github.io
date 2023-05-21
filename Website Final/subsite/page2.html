@@ -3,6 +3,61 @@
 <head>
     <title>Random Words</title>
     <link rel="stylesheet" href="./../css/style.css">
+    <style>
+        /* Add styles for page2.html specific elements */
+        header {
+            background: #81C3D7;
+            padding: 30px 0;
+            min-height: 70px;
+            border-bottom: 3px solid #16425B;
+        }
+
+        header a {
+            color: #2c6183;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px;
+        }
+
+        .word-container {
+            min-height: 400px;
+            background: url('../img/stroke.gif') 0 150px;
+            text-align: center;
+            color: #ffffff; /* Adjusted to match the color palette */
+        }
+
+        .word-container h1 {
+            margin-top: 30px;
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .word-container p {
+            font-size: 20px;
+        }
+
+        .red { color: #E6332A; }
+        .orange { color: #F7931E; }
+        .yellow { color: #F8C40A; }
+        .green { color: #7CB342; }
+        .blue { color: #039BE5; }
+        .indigo { color: #3F51B5; }
+        .violet { color: #9C27B0; }
+
+        footer {
+            padding: 20px;
+            margin-top: 20px;
+            color: #ffffff;
+            background-color: #011727;
+            text-align: center;
+        }
+    </style>
     <script>
         function getRandomWord() {
             var words = ["apple", "banana", "cherry", "grape", "melon", "orange", "peach"];
@@ -15,16 +70,17 @@
             for (var i = 0; i < wordElements.length; i++) {
                 var wordElement = wordElements[i];
                 var randomWord = getRandomWord();
+                var randomColorClass = getRandomColorClass();
 
                 wordElement.textContent = randomWord;
-                wordElement.style.color = getRandomColor();
+                wordElement.className = "word " + randomColorClass;
                 wordElement.style.fontFamily = getRandomFontFamily();
             }
         }
 
-        function getRandomColor() {
-            var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
-            return colors[Math.floor(Math.random() * colors.length)];
+        function getRandomColorClass() {
+            var colorClasses = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+            return colorClasses[Math.floor(Math.random() * colorClasses.length)];
         }
 
         function getRandomFontFamily() {
@@ -34,11 +90,24 @@
     </script>
 </head>
 <body onload="changeWordProperties()">
-    <h1 class="word"></h1>
-    <h1 class="word"></h1>
-    <h1 class="word"></h1>
-    <h1><a href = "./../index.html" a>Home</a></h1>
-    <h1><a href = "./page1.html" a>Page 1</a></h1>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./../index.html">Home</a></li>
+                <li><a href="./page1.html">Page 1</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="word-container">
+        <h1 class="word"></h1>
+        <h1 class="word"></h1>
+        <h1 class="word"></h1>
+    </div>
+
+    <footer>
+        <p>© 2023 Your Website. All rights reserved.</p>
+    </footer>
 
     <script>
         setInterval(changeWordProperties, 3000); // Change words every 3 seconds
